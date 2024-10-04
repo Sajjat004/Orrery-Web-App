@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Asteroids</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="stylesheet" href="assets/style.css">
+
+	<style>
+		body {
+			overflow: hidden;
+			margin: 0;
+		}
+	</style>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js"></script>
+	<script src="//unpkg.com/d3"></script>
+	<script src="//unpkg.com/d3-array"></script>
+	<script src="//unpkg.com/d3-scale"></script>
+
+	<script src="//unpkg.com/globe.gl"></script>
+
+	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#globeViz2").hide();
+			$("#globeViz3").hide();
+			$("#globeViz4").hide();
+			$("#hide").css("background-color", "#78CBFF");
+
+			$("#hide").click(function () {
+				$("#globeViz").show();
+				$("#globeViz2").hide();
+				$("#hide").css("background-color", "#78CBFF");
+				$("#show").css("background-color", "transparent");
+			});
+			$("#show").click(function () {
+				$("#globeViz").hide();
+				$("#globeViz2").show();
+				$("#hide").css("background-color", "transparent");
+				$("#show").css("background-color", "#78CBFF");
+			});
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<!-- left Menu  -->
+	<!-- <div class="sidebar w3-sidebar w3-bar-block w3-card">
+		<a class="active" href="index.html"><i class="fa fa-home"></i> Home</a>
+		<a href="#"><i class="fa fa-bullhorn"></i> Notification</a>
+		<a href="#"><i class="fa fa-question"></i> How to Use?</a>
+		<a id="referenceView"><i class="fa fa-folder"></i> Reference(Nasa)</a>
+		<a href="https://moon.nasa.gov/resources/13/apollo-11-seismic-experiment/"><i class="fa fa-info-circle"></i>
+			About</a>
+
+	</div> -->
+
+	<!-- Add zoom buttons -->
+
+	<button id="zoomInButton" class="zoomBtn1 w3-ripple"><i class="fa fa-plus"></i></button>
+	<button id="zoomOutButton" class="zoomBtn2 w3-ripple"><i class="fa fa-minus"></i></button>
+	<button id="learnBtn" class="learnBtn w3-ripple" onclick="playGame()">
+		<span class="button-content">
+			Learn by Playing   <i class="fa fa-gamepad fa-lg" aria-hidden="true"></i>
+		</span>
+	</button>
+
+
+	<!-- Right Sidebar -->
+	<div class="w3-sidebar w3-bar-block w3-card"
+		style="width:20%;right:0;margin:20px;height:75%;border-radius:5px; overflow: hidden;">
+		<h5 class="w3-bar-item" style="cursor: default;">Orrery Web App</h5>
+
+		<!-- View Button -->
+		<!-- <div class="btn-group">
+			<button class="button1" id="hide">Real-time Asteroids</button>
+			<button class="button2" id="show">Solar System</button>
+		</div> -->
+
+		<!-- Search bar -->
+		<form class="search">
+			<input type="text" id="searchInput" placeholder="Search - Asteroids...">
+			<button type="button" id="searchButton"><i class="fa fa-search"></i></button>
+		</form>
+
+		<!-- Date Picker -->
+		<div class="row-container">
+			<select id="year" onchange="filterData()">
+				<option value="">Year</option>
+			</select>
+
+			<select id="month" onchange="filterData()">
+				<option value="">Month</option>
+			</select>
+
+			<select id="day" onchange="filterData()">
+				<option value="">Day</option>
+			</select>
+
+			<button id="datePickBtn">View All</button>
+		</div>
+
+		<!-- Day/Night Terminator Line -->
+		<div class="row-container">
+			<span class="text">All Asteroids:</span>
+			<label class="toggle-button">
+				<input type="checkbox" class="toggle-1">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<!-- Lattitude & Logitude Line -->
+		<div class="row-container">
+			<span class="text">Near Earth Asteroids:</span>
+			<label class="toggle-button">
+				<input type="checkbox" class="toggle-2">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<!-- Topographic Map view -->
+		<div class="row-container">
+			<span class="text">Hazardous Asteroids</span>
+			<label class="toggle-button">
+				<input type="checkbox" class="toggle-3">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+		<!-- Seas & Oceans view -->
+		<div class="row-container">
+			<span class="text">Star Field</span>
+			<label class="toggle-button">
+				<input type="checkbox" class="toggle-4">
+				<span class="slider"></span>
+			</label>
+		</div>
+
+
+
+		<!-- Rotation speed slider with Auto control -->
+		<div class="row-container">
+			<span class="sliderText">Rotation:</span>
+			<input type="range" id="rotationSpeedSlider" min="0.01" max="1.0" step="0.01" value="0.1" />
+			<button id="autoRotationToggle">Auto</button>
+		</div>
+
+		<!-- Light intensity-->
+		<div class="row-container">
+			<label for="light-intensity-slider" class="sliderText">Light:</label>
+			<input type="range" id="light-intensity-slider" min="0" max="2" step="0.1" value="1">
+		</div>
+
+
+	</div>
+
+	<!-- <iframe src='https://eyes.nasa.gov/apps/asteroids/#/home' width='1500px' height='680px' frameborder='0'></iframe> -->
+
+	<iframe src='https://eyes.nasa.gov/apps/asteroids/#/home' width='1500px' height='680px' frameborder='0' style='margin-top: -48px;'></iframe>
+
+
+
+
+	<!-- Right Side Info View -->
+
+	<div id="webapp_info">
+		<label for="webapp_info">Information :</label>
+		
+		<p>Double Click on any object to know more about it.</p>
+	</div>
+
+	<script>
+		function playGame() {
+            window.location.href = 'index_game.html';
+        }
+	</script>
+
+</body>
+
+</html>

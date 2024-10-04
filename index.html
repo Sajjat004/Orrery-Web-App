@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Explorer</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+        body {
+            background-image: url('assets/BG.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div>
+       <span class="constant-tilt-shake">Moonquake &nbsp;&nbsp;&nbsp;&nbsp; 2.0</span><span class="map"><span class="">M</span><span class="">a</span><span class="">p</span></span><span class="text2">for the Mass</span>
+    </div>  -->    
+
+    <div class="word constant-tilt-shake">
+        <span class="m">C</span>
+        <span class="">e</span>
+        <span class="">l</span>
+        <span class="">e</span>
+        <span class="q">s</span>
+        <span class="">t</span>
+        <span class="">i</span>
+        <span class="">a</span>
+        <span class="">l</span>
+        <span class=""></span>
+        <span class="m2">E</span>
+        <span class="">x</span>
+        <span class="">p</span>
+        <span class="">l</span>
+        <span class="">o</span>
+        <span class="">r</span>
+        <span class="">e</span>
+        <span class="zero">r</span>
+        <div>
+            <p class="text1">Interactive Orrery Web App</p>
+        </div>
+    </div>
+    
+
+    <div class="box"></div>
+
+    <div class="button-row">
+        <button id="btn" onclick="myVar = setTimeout(myFunction, 1500)">Explore</button>
+        <button id="btn1" onclick="myVar = setTimeout(myFunction1, 1500)">Learn by Playing!</button>
+        <button id="btn2" onclick="myVar = setTimeout(myFunction2, 1500)">Solar System</button>
+    </div>
+    
+    
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            //document.querySelector('.constant-tilt-shake').classList.add('animationshake');
+            // document.querySelector('.zero').classList.add('active');
+            // document.querySelector('.m').classList.add('active');
+            // document.querySelector('.q').classList.add('active');
+            // document.querySelector('.m2').classList.add('active');
+        });
+
+        function myFunction() {
+            window.location.href = 'index_explore.html';
+        }
+
+        function myFunction1() {
+            window.location.href = 'index_game.html';
+        }
+
+        function myFunction2() {
+            window.location.href = 'index_solar_system.html';
+        }
+
+
+        const spans = document.querySelectorAll('.word span');
+
+        spans.forEach((span, idx) => {
+            span.addEventListener('click', e => {
+                e.target.classList.add('active');
+            });
+            span.addEventListener('animationend', e => {
+                e.target.classList.remove('active');
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
