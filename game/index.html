@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for the notification area */
+        #notification {
+            display: none; /* Hidden by default */
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        /* Styles for the score box */
+        #score-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome-message">
+        <p>Think you're a space genius? Answer 3 cool questions and blast off into a solar system adventure! Are you ready?</p>
+        <button id="start-button" onclick="showQuiz()">Yes</button>
+    </div>
+
+    <div id="quiz-container" style="display: none;">
+        <h1>Space Quiz</h1>
+        <div id="score-box">Questions Asked: 0 | Correct Answers: 0</div> <!-- Score box -->
+        <div id="question-container"></div>
+        <div id="options-container"></div>
+        
+        <!-- Notification area for user feedback -->
+        <div id="notification"></div>
+    </div>
+
+    <div id="result-container" style="display: none;">
+        <p id="result-message"></p>
+        <button id="restart-button" onclick="startQuiz()">Restart Quiz</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

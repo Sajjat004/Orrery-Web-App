@@ -4,11 +4,25 @@ let score = 0;
 let highscore = 0;
 let asteroidImg, destroyerImg;
 let stars = [];  // Array to hold stars
+let kills = 0;
+let unlockedAchievements = [];
+
+// List of achievements (notable asteroids)
+const achievements = [
+  { name: '2012 DA14', details: 'Passed within 27,700 km of Earth in February 2013.' },
+  { name: '2005 YU55', details: 'Passed by Earth at about 324,600 km in November 2011.' },
+  { name: '1999 KW4', details: 'A binary asteroid, came within 5.2 million km of Earth in May 2019.' },
+  { name: '2020 QG', details: 'Set a record by flying just 2,950 km above Earth in August 2020.' },
+  { name: '2023 DZ2', details: 'Came within 174,000 km of Earth in March 2023.' },
+  { name: 'Chelyabinsk Meteor', details: 'Exploded over Russia in 2013, causing significant damage.' },
+  { name: 'Tunguska Event', details: 'Flattened 80 million trees in Siberia in 1908.' },
+  { name: 'Chicxulub Impactor', details: 'Caused the extinction of the dinosaurs ~66 million years ago.' },
+  { name: '2008 TC3', details: 'Entered Earth’s atmosphere and exploded over Sudan in 2008.' }
+];
 
 function preload() {
-  // Load the images (make sure the paths are correct)
-  asteroidImg = loadImage('images/asteroid_image-Photoroom.png');  // Replace with actual path
-  destroyerImg = loadImage('images/destroyer_image-Photoroom.png');  // Replace with actual path
+  asteroidImg = loadImage('assets/asteroid_image-Photoroom.png');  // Replace with actual path
+  destroyerImg = loadImage('assets/destroyer_image-Photoroom.png');  // Replace with actual path
 }
 
 function setup() {
@@ -31,8 +45,8 @@ function windowResized() {
 
 function draw() {
   // Space-like background with stars
-  background(0);  // Black background for space
-  drawStars();    // Function to draw stars
+  background(0);
+  drawStars();  // Function to draw stars
 
   // Draw and update the player (ship)
   player.draw();
@@ -51,8 +65,15 @@ function draw() {
 
     // Check if asteroid was shot
     if (player.hasShot(asteroids[i])) {
+      kills++;
       score++;
       asteroids.splice(i, 1);
+
+      // Check if an achievement has been unlocked every 10 kills
+      if (kills % 5 === 0 && kills / 5 <= achievements.length) {
+        let achievement = achievements[(kills / 5) - 1];
+        unlockedAchievements.push(achievement);
+      }
     }
   }
 
@@ -84,6 +105,10 @@ function restart() {
     highscore = score;
   }
   score = 0;
+  kills = 0;
+
+  // Show achievements when game is over
+  showAchievements();
 }
 
 function mouseClicked() {
@@ -194,5 +219,43 @@ class Asteroid {
 
   ateYou() {
     return dist(this.pos.x, this.pos.y, player.pos.x, player.pos.y) < 20;
+  }
+}
+
+// Function to display achievements in a styled modal
+function showAchievements() {
+  const modal = document.getElementById("modal");
+  const achievementList = document.getElementById("achievement-list");
+
+  if (unlockedAchievements.length > 0) {
+    let achievementHTML = "<h3>You've unlocked the following achievements:</h3>";
+    for (let achievement of unlockedAchievements) {
+      achievementHTML += `<p><strong>${achievement.name}</strong>: ${achievement.details}</p>`;
+    }
+    achievementList.innerHTML = achievementHTML;
+  } else {
+    achievementList.innerHTML = "<p>No achievements earned this time.</p>";
+  }
+  unlockedAchievements = [];
+  // Show the modal
+  modal.style.display = "block";
+
+  // Close modal when clicking the "Close" button
+  const closeButton = document.getElementById("closeModal");
+  closeButton.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal when clicking the "X" button
+  const span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal when clicking outside of the modal content
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
   }
 }

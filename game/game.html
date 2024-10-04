@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asteroid Destroyer Game</title>
+  
+  <!-- Load p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  
+  <!-- Include your sketch.js file where the game logic resides -->
+  <script src="sketch.js" defer></script>
+  
+  <!-- Custom styles for the modal and canvas -->
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif; /* Optional: space-themed font */
+    }
+    canvas {
+      display: block;
+    }
+
+    /* Modal styling */
+    .modal {
+      display: none;  /* Hidden by default */
+      position: fixed;
+      z-index: 100; /* On top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      margin: 10% auto;
+      padding: 20px;
+      width: 50%;
+      text-align: center;
+      border-radius: 10px;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      color: #00ffcc;
+    }
+
+    .modal-content p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .close {
+      color: #00ffcc;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    .btn {
+      background-color: #00ffcc;
+      color: #1e1e1e;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #00bfa6;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Modal for displaying achievements -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Achievements Earned!</h2>
+      <div id="achievement-list"></div>
+      <button class="btn" id="closeModal">Close</button>
+    </div>
+  </div>
+  
+</body>
+</html>
