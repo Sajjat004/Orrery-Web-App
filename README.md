@@ -30,20 +30,32 @@ Tracking and understanding Near-Earth Objects (NEOs) and Potentially Hazardous A
 - After answering 3 consecutive questions correctly, the Asteroid Destroyer game begins, where players destroy asteroids by answering space-related questions. 
 - Achievements unlock after every 5 kills, revealing facts about notable asteroids that have approached or impacted Earth.
 
-[photo]
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/learnByPlaying1.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/learnByPlaying2.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/learnByPlaying3.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/learnByPlaying4.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/learnByPlaying5.png)
 
 #### Explore:
 
 - In Explore option, we can track the planets, Near-Earth Objects, and Potentially Hazardous Asteroids etc in  real-time.
 
-[photo]
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/explore.png)
 
 #### Solar System:
 
 - The Solar System Section offers an interactive experience to explore the solar system, providing detailed information about their **orbits**, and **zoom in**, **zoom out**, and **speed**, **distance** etc.
 - Users can engage with vibrant visuals and animations that illustrate planetary movements and distances from the Sun.
 
-[photo]
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/solarSystem1.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/solarSystem2.png)
+
+![](https://github.com/Sajjat004/Orrery-Web-App/blob/main/ReadmeImages/solarSystem3.png)
 
 #### **WHAT BENEFITS DOES IT HAVE?**
 
@@ -64,6 +76,3 @@ Future Opportunities: Beyond learning, it hints at potential advancements in spa
 5. **Augmented Reality (AR) and Virtual Reality (VR):** Bringing the solar system into classrooms and homes through immersive AR and VR, allowing users to "walk" among celestial objects or view asteroids up close.
 6. **Mobile Application:** Expanding to mobile platforms to increase accessibility and engagement, enabling users to explore space on-the-go.
 Citizen Science: Enabling users to contribute their observations or participate in NASA's asteroid-tracking missions, fostering a global community of space enthusiasts and amateur astronomers.
-
-## PROJECT SOURCE CODE
-Link to the project: https://github.com/Sajjat004/Orrery-Web-App
