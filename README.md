@@ -1,7 +1,10 @@
 
 # **Orrery-Web-App**
 ## High-Level Summary
+
+<p align="justify">
 Celestial Explorer is an interactive orrery web app designed to engage users with real-time data from NASA to explore the solar system, including planets, Near-Earth Objects (NEOs), and Potentially Hazardous Asteroids (PHAs). The app provides a dynamic learning experience, offering both visual exploration and educational games like "Asteroid Destroyer" that teach space science in a fun, interactive way. Aimed at making space exploration accessible to people of all ages, especially kids, the project combines STEM learning with real-time simulations. Built with open-source principles, the project has the potential for future development, expanding features like asteroid tracking, space mission simulations, and contributions from a broader developer community. The ultimate goal is to bridge the gap between the general public and space science, encouraging curiosity and fostering a deeper understanding of our universe.
+</p>
 
 ## Project Demo
 https://www.youtube.com/watch?v=69u9zzHGkk8
@@ -13,14 +16,21 @@ https://celestial-explorer.netlify.app/
 
 #### **BACKGROUND**
 
+<p align="justify">
 The Celestial Explorer project was conceived as part of the NASA Space Apps Challenge 2024, inspired by the need to make space science accessible and engaging for a wider audience. With Near-Earth Objects (NEOs) and Potentially Hazardous Asteroids (PHAs) posing real-world risks, tracking and understanding these celestial bodies is crucial for both safety and scientific exploration.
-
+</p>
+<p align="justify">
 Recognizing that space science can often feel distant and complex for the general public, especially children, the team saw an opportunity to bridge this gap through interactive education. By leveraging NASA’s real-time data and APIs, Celestial Explorer was developed as a dynamic orrery web app that not only visualizes the solar system but also incorporates educational games and quizzes to make learning about asteroids, planetary orbits, and space phenomena fun and accessible.
-
+</p>
+<p align="justify">
 The project draws on the team's collective passion for science, technology, and education, with a vision of inspiring curiosity about space and fostering STEM interest in young learners, while also providing valuable tools for students, educators, and space enthusiasts alike.
+</p>
 
 #### **WHY IT IS IMPORTANT?**
+
+<p align="justify">
 Tracking and understanding Near-Earth Objects (NEOs) and Potentially Hazardous Asteroids (PHAs) is crucial because these celestial bodies can pose significant risks to Earth. By monitoring their trajectories, we can not only prepare for potential threats but also unlock valuable scientific insights about the origins of our solar system. Additionally, understanding these objects may lead to future opportunities in space exploration, such as asteroid mining for resources. Educating the public about NEOs through interactive tools like Celestial Explorer helps raise awareness and fosters interest in space science, ensuring that more people understand the importance of monitoring our cosmic environment.
+</p>
 
 #### **CELESTIAL EXPLORER - INTERACTIVE ORRERY WEB APP**
 
